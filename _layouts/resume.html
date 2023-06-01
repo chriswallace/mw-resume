@@ -132,6 +132,25 @@
         {% endfor %}
       </section>
       <!-- end Skills -->
+      {% endif %}{% if site.resume_section_community %}
+      <!-- begin Community -->
+      <section class="content-section">
+        <header class="section-header">
+          <h2>Community Roles</h2>
+        </header>
+        {% for community in site.data.community %}
+        <div class="resume-item">
+          <h3 class="resume-item-title">
+            <a href="{{ community.url }}">{{ community.organization }}</a>
+          </h3>
+          <h4 class="resume-item-details">
+            {{ community.role }} &bull; {{ community.year }}
+          </h4>
+          <p class="resume-item-copy">{{ community.summary }}</p>
+        </div>
+        {% endfor %}
+      </section>
+      <!-- end Community -->
       {% endif %} {% if site.resume_section_recognition %}
       <!-- begin Recognition -->
       <section class="content-section">
@@ -206,33 +225,6 @@
         {% endfor %}
       </section>
       <!-- end Certifications -->
-      {% endif %}{% if site.resume_section_community %}
-      <!-- begin Community Service Roles -->
-      <section class="content-section">
-        <header class="section-header">
-          <h2>Community Service Roles</h2>
-        </header>
-
-        {% for community in site.data.community %}
-        <div
-          class="resume-item"
-          itemscope
-          itemprop="memberOf"
-          itemtype="http://schema.org/Organization"
-        >
-          <h3 class="resume-item-title" itemprop="name">
-            {% if community.url %}<a href="{{ community.url }}"
-              >{{ community.organization }}</a
-            >{% else %}{{ community.organization }}{% endif %}
-          </h3>
-          <h4 class="resume-item-details" itemprop="description">
-            {{ community.role }} &bull; {{ community.year }}
-          </h4>
-          <p class="resume-item-copy">{{ community.summary }}</p>
-        </div>
-        {% endfor %}
-      </section>
-      <!-- end Community Service Roles -->
       {% endif %} {% if site.resume_section_interests %}
       <!-- begin Interests -->
       <section class="content-section">
